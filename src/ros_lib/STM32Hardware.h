@@ -4,7 +4,7 @@
 
 
 class STM32Hardware {
-  public:
+public:
   
     /** any initialization code necessary */
     void init(); 
@@ -12,10 +12,14 @@ class STM32Hardware {
     /** read a byte from the connection . */
     int read();
 
-  /** write data to the connection to ROS */
-  void write(uint8_t* data, int length);
+    /** write data to the send-buffer.
+     *  Automatically flushes if the buffer is full */
+    void write(uint8_t* data, int length);
+   
+    /** Send data from the send-buffer to the connection */
+    void flush();
 
-  /** returns milliseconds since start of program */
-  unsigned long time();
+    /** returns milliseconds since start of program */
+    unsigned long time();
 
 };
