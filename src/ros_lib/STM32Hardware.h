@@ -12,8 +12,7 @@ public:
     /** read a byte from the connection . */
     int read();
 
-    /** write data to the send-buffer.
-     *  Automatically flushes if the buffer is full */
+    /** write data to the send-buffer. */
     void write(uint8_t* data, int length);
    
     /** Send data from the send-buffer to the connection */
