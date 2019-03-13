@@ -6,16 +6,18 @@
 class STM32Hardware {
 public:
   
-    /** any initialization code necessary */
+    /** Any initialization code necessary */
     void init(); 
 
-    /** read a byte from the connection . */
+    /** Read a byte from the communication link */
     int read();
 
-    /** write data to the send-buffer. */
+    /** Write data to the send-buffer.
+     *  @note This method does not send anything, it merely adds the data to a buffer.
+     *        Data will be send when flush() is called. */
     void write(uint8_t* data, int length);
    
-    /** Send data from the send-buffer to the connection */
+    /** Send data from the send-buffer. */
     void flush();
 
     /** returns milliseconds since start of program */
